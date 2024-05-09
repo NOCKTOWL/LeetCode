@@ -1,0 +1,15 @@
+# https://leetcode.com/problems/roman-to-integer/
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        dict = {"IV":4,"IX":9,"XL":40,"XC":90,"CD":400,"CM":900,"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+        count = 0
+        out = 0
+        while count < len(s):
+         if count+1<len(s) and s[count:count+2] in dict:
+            out+=dict[s[count:count+2]]
+            count+=2
+         else:
+            out+=dict[s[count]]
+            count+=1
+        return out
